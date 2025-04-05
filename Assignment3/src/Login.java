@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Login {
 	private ArrayList<String[]> insertData = new ArrayList<>();
-	private ArrayList<Patient> patientList = new ArrayList<>();
-	private ArrayList<MedicalStaff> staffList = new ArrayList<>();
+	//private ArrayList<Patient> patientList = new ArrayList<>();
+	//private ArrayList<MedicalStaff> staffList = new ArrayList<>();
 	
 	public void activeLogIn(String patientPath, String staffPath, char loginType) {
 		boolean isTrue = false;
@@ -69,7 +69,6 @@ public class Login {
             while ((line = br.readLine()) != null && !line.isEmpty()) {
                 String[] values = line.split(",");
                 insertData.add(values);
-                addDataToList(values, loginType);
             }
         } catch (IOException e) {
             e.printStackTrace();  // Handle the exception, could log or throw as needed
@@ -84,16 +83,4 @@ public class Login {
         }
         return insertData;
     }
-	
-	public void addDataToList(String[] values, char userType) {
-        if (userType == 'P') {
-            // Create a new Patient object and add to the patientList
-            Patient patient = new Patient(values[0], values[1], values[2], values[3], values[4], values[5]);
-            patientList.add(patient);
-        } else if (userType == 'S') {
-            // Create a new MedicalStaff object and add to the staffList
-            MedicalStaff staff = new MedicalStaff(values[0], values[1], values[2], values[3], values[4], values[5]);
-            staffList.add(staff);
-        }
-   }
 }

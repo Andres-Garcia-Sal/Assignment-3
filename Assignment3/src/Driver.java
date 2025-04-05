@@ -6,17 +6,14 @@ public class Driver {
 		Scanner scnr = new Scanner(System.in);
 		boolean isTrue = true;
 		
-		String patientPath = "C:\\Users\\andre\\OneDrive\\Desktop\\patient.csv";
-		String staffPath = "C:\\Users\\andre\\OneDrive\\Desktop\\medicalstaff.csv";
-		
+		String patientPath = "patient.csv";
+		String staffPath = "medicalstaff.csv";
 		Login act = new Login();
 		
 		System.out.println("Medical login System");
 		System.out.print("Is this a Patient or Staff Member? [P] or [S]: ");
 		char loginType = scnr.next().charAt(0);
 		System.out.println();
-		
-		scnr.nextLine();
 		
 		act.activeLogIn(patientPath, staffPath, loginType);
 		
@@ -30,8 +27,8 @@ public class Driver {
 			else if(loginType == 'S') {
 				System.out.println("2. Search for Patient");
 				System.out.println("3.Edit current Patient");
+				System.out.println("4. Create Report");
 			}
-			System.out.println("4. Create Report");
 			System.out.println("5. Log Off");
 			System.out.print("Select an option: ");
 			
@@ -40,7 +37,7 @@ public class Driver {
 			
 			switch(option) {
 			case 1:
-				PatientManager.currentProfile();
+				PatientManager.displayUserProfile();
 				break;
 			case 2:
 				/*identify if either an instance of patient or staff
@@ -57,6 +54,7 @@ public class Driver {
 				 * Ask user for which type of report to see, three options, being ID,
 				 * name, or email(alphabetical order)
 				 */
+				
 			case 5:
 				isTrue = false;
 				System.out.println("Thank you for using, logging off");
